@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "vite --port 3000",
     "build": "tsc && vite build",
-    "start": "NODE_ENV=production node dist/index.js",
-    "db:push": "drizzle-kit push"
+    "start": "NODE_ENV=production node dist/main.js",
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
