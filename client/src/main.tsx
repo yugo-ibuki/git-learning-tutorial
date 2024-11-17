@@ -9,8 +9,8 @@ import GitBasics from "./pages/GitBasics";
 import GitWorkflow from "./pages/GitWorkflow";
 import GithubGuide from "./pages/GithubGuide";
 import Navigation from "./components/Navigation";
-import { ThemeProvider } from "@/components/ui/theme-provider";
-import { Toaster } from "@/components/ui/toaster";
+import { ThemeProvider } from "./components/ui/theme-provider";
+import { Toaster } from "./components/ui/toaster";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

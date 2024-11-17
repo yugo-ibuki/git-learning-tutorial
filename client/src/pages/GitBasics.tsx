@@ -7,7 +7,7 @@ export default function GitBasics() {
   return (
     <div className="space-y-8">
       <h1 className="text-3xl font-bold">Git基礎</h1>
-
+      
       <Card>
         <CardHeader>
           <CardTitle>Gitの設定</CardTitle>

@@ -1,3 +1,5 @@
+// Since we're moving to a static site, we'll simplify the fetcher
+// to just return the data directly without making server requests
 export class FetchError extends Error {
   info: any;
   status: number;
@@ -8,20 +10,9 @@ export class FetchError extends Error {
   }
 }
 
-// Fetcher function for SWR that includes credentials and handles non-200 responses
+// Simplified fetcher that returns static data
 export const fetcher = async (url: string) => {
-  const res = await fetch(url, {
-    credentials: "include",
-  });
-
-  if (!res.ok) {
-    const error = new FetchError(
-      `A ${res.status} error occurred while fetching the data.`,
-      await res.json(),
-      res.status,
-    );
-    throw error;
-  }
-
-  return res.json();
+  // In a static site, we don't need actual fetching
+  // This is kept for SWR compatibility
+  return Promise.resolve({});
 };

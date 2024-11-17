@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 
 export default function Navigation() {
