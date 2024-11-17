@@ -46,25 +46,25 @@ export const gitBasicsCommands: Pick<GitCommands, 'setup' | 'basic'> = {
       tips: "git status -sで簡潔な表示が可能です"
     },
     {
-      command: "git add <file>",
-      description: "変更をステージングエリアに追加。コミットする準備を整えます",
-      example: "git add index.html\ngit add .",
-      useCase: "変更したファイルをコミット対象として選択する時に使用します",
-      tips: "git add .で全ての変更をステージングできます。git add -pで変更を部分的に選択できます"
+      command: "git add",
+      description: "変更したファイルをGitの管理対象として登録する作業です\nスーパーのお買い物かごのようなイメージです",
+      example: "# 特定のファイルを追加\ngit add ファイル名.txt\n\n# 全ての変更ファイルを追加\ngit add .\n\n# 変更状態を確認\ngit status",
+      useCase: "変更したファイルをコミットする準備として使用します",
+      tips: "git add . で全ての変更をまとめて追加できます"
     },
     {
-      command: "git commit -m \"message\"",
-      description: "ステージングした変更を記録。変更の説明も一緒に保存します",
-      example: "git commit -m \"ログイン機能を追加\"",
-      useCase: "機能の追加や修正が完了した時、意味のある単位でコミットします",
-      tips: "コミットメッセージは具体的に書き、何を変更したのかが分かるようにします"
+      command: "git commit",
+      description: "addで登録した変更内容を記録する作業です\nお買い物かごの商品をレジで精算するようなイメージです\n必ず変更内容を説明するメッセージをつけます",
+      example: "# 変更内容を記録\ngit commit -m \"ログイン機能を追加\"\n\n# addとcommitを同時に行う（新規ファイル以外）\ngit commit -am \"バグを修正\"\n\n# コミット履歴を確認\ngit log",
+      useCase: "機能追加やバグ修正など、作業が一段落したタイミングで使用します",
+      tips: "-amオプションを使うと、変更のあるファイルの追加とコミットを同時に行えます"
     },
     {
-      command: "git log",
-      description: "コミット履歴を表示。誰がいつどんな変更をしたのか確認できます",
-      example: "git log --oneline",
-      useCase: "プロジェクトの変更履歴を確認したい時や、特定の変更を探す時に使用します",
-      tips: "git log --graphで分かりやすいグラフ表示が可能です"
+      command: "git push",
+      description: "ローカル（自分のPC）での変更をリモートリポジトリ（GitHubなど）にアップロードする作業です\n完成した成果物を提出するようなイメージです",
+      example: "# 変更をリモートリポジトリにアップロード\ngit push origin main\n\n# 初回push時\ngit push -u origin main",
+      useCase: "ローカルでの作業が完了し、他の開発者と共有する準備が整った時に使用します",
+      tips: "初回push時は-uオプションを使うと、以降は単にgit pushだけで済むようになります"
     }
   ]
 };

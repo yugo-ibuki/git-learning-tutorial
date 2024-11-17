@@ -6,14 +6,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 export default function GitBasics() {
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-bold">Git Basics</h1>
-      
+      <h1 className="text-3xl font-bold">Git基礎</h1>
+
       <Card>
         <CardHeader>
-          <CardTitle>Setting Up Git</CardTitle>
+          <CardTitle>Gitの設定</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="mb-4">Configure your Git environment with these essential commands:</p>
+          <p className="mb-4">Gitの環境設定に必要な基本的なコマンド：</p>
           <div className="space-y-4">
             {gitBasicsCommands.setup.map((command) => (
               <CommandCard
@@ -28,10 +28,10 @@ export default function GitBasics() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Basic Git Commands</CardTitle>
+          <CardTitle>基本的なGitコマンド</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="mb-4">Essential commands for everyday Git usage:</p>
+          <p className="mb-4">日々の開発で使用する基本的なコマンド：</p>
           <div className="space-y-4">
             {gitBasicsCommands.basic.map((command) => (
               <CommandCard
@@ -46,15 +46,24 @@ export default function GitBasics() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Example Workflow</CardTitle>
+          <CardTitle>基本的な作業の流れ</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="mb-4">A typical Git workflow looks like this:</p>
+          <p className="mb-4">一般的なGitの作業手順：</p>
           <CodeBlock
-            code={`git init
+            code={`# 新しいリポジトリを作成
+git init
+
+# 変更をステージングに追加
 git add .
-git commit -m "Initial commit"
+
+# 最初のコミットを作成
+git commit -m "最初のコミット"
+
+# リモートリポジトリを追加
 git remote add origin https://github.com/username/repo.git
+
+# 変更をプッシュ
 git push -u origin main`}
             language="bash"
           />

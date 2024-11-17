@@ -4,33 +4,33 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export default function GithubGuide() {
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-bold">GitHub Guide</h1>
+      <h1 className="text-3xl font-bold">GitHub活用ガイド</h1>
 
       <Tabs defaultValue="basics">
         <TabsList>
-          <TabsTrigger value="basics">GitHub Basics</TabsTrigger>
-          <TabsTrigger value="pr">Pull Requests</TabsTrigger>
-          <TabsTrigger value="issues">Issues</TabsTrigger>
+          <TabsTrigger value="basics">GitHubの基本</TabsTrigger>
+          <TabsTrigger value="pr">プルリクエスト</TabsTrigger>
+          <TabsTrigger value="issues">イシュー（課題管理）</TabsTrigger>
         </TabsList>
 
         <TabsContent value="basics">
           <Card>
             <CardHeader>
-              <CardTitle>Getting Started with GitHub</CardTitle>
+              <CardTitle>GitHubを始めよう</CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-4">
                 <li>
-                  <h3 className="font-semibold">Creating a Repository</h3>
-                  <p>Click the "+" icon in the top right corner and select "New repository"</p>
+                  <h3 className="font-semibold">リポジトリの作成</h3>
+                  <p>画面右上の「+」アイコンをクリックし、「New repository」を選択します</p>
                 </li>
                 <li>
-                  <h3 className="font-semibold">Cloning a Repository</h3>
-                  <p>Use the green "Code" button to get the repository URL</p>
+                  <h3 className="font-semibold">リポジトリのクローン</h3>
+                  <p>緑色の「Code」ボタンからリポジトリのURLを取得します</p>
                 </li>
                 <li>
-                  <h3 className="font-semibold">Repository Settings</h3>
-                  <p>Manage collaborators, branches, and security in the Settings tab</p>
+                  <h3 className="font-semibold">リポジトリの設定</h3>
+                  <p>Settings タブから、共同開発者の追加やブランチの保護、セキュリティ設定などを管理できます</p>
                 </li>
               </ul>
             </CardContent>
@@ -40,15 +40,15 @@ export default function GithubGuide() {
         <TabsContent value="pr">
           <Card>
             <CardHeader>
-              <CardTitle>Working with Pull Requests</CardTitle>
+              <CardTitle>プルリクエストの作成と管理</CardTitle>
             </CardHeader>
             <CardContent>
               <ol className="space-y-4 list-decimal list-inside">
-                <li>Create a new branch for your changes</li>
-                <li>Push your changes to GitHub</li>
-                <li>Click "Compare & pull request"</li>
-                <li>Add description and request reviewers</li>
-                <li>Submit the pull request</li>
+                <li>変更用の新しいブランチを作成</li>
+                <li>変更をGitHubにプッシュ</li>
+                <li>「Compare & pull request」をクリック</li>
+                <li>説明を追加してレビュアーを指定</li>
+                <li>プルリクエストを送信</li>
               </ol>
             </CardContent>
           </Card>
@@ -57,21 +57,21 @@ export default function GithubGuide() {
         <TabsContent value="issues">
           <Card>
             <CardHeader>
-              <CardTitle>Managing Issues</CardTitle>
+              <CardTitle>イシューの管理</CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-4">
                 <li>
-                  <h3 className="font-semibold">Creating Issues</h3>
-                  <p>Use issues to track bugs, enhancements, and tasks</p>
+                  <h3 className="font-semibold">イシューの作成</h3>
+                  <p>バグの報告や機能改善の提案、タスクの管理にイシューを使用します</p>
                 </li>
                 <li>
-                  <h3 className="font-semibold">Labels and Milestones</h3>
-                  <p>Organize issues with labels and group them into milestones</p>
+                  <h3 className="font-semibold">ラベルとマイルストーン</h3>
+                  <p>ラベルでイシューを分類し、マイルストーンでグループ化して進捗を管理します</p>
                 </li>
                 <li>
-                  <h3 className="font-semibold">Issue Templates</h3>
-                  <p>Create templates to standardize issue reporting</p>
+                  <h3 className="font-semibold">イシューテンプレート</h3>
+                  <p>イシュー報告の形式を統一するためのテンプレートを作成できます</p>
                 </li>
               </ul>
             </CardContent>

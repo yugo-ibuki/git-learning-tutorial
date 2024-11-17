@@ -6,14 +6,14 @@ import { gitWorkflowCommands } from "../lib/git-commands";
 export default function GitWorkflow() {
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-bold">Git Workflow</h1>
+      <h1 className="text-3xl font-bold">Gitワークフロー</h1>
 
       <Card>
         <CardHeader>
-          <CardTitle>Branching and Merging</CardTitle>
+          <CardTitle>ブランチとマージの操作</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="mb-4">Learn how to work with branches effectively:</p>
+          <p className="mb-4">ブランチを効果的に使用する方法：</p>
           <div className="space-y-4">
             {gitWorkflowCommands.branching.map((command) => (
               <CommandCard
@@ -28,22 +28,22 @@ export default function GitWorkflow() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Feature Branch Workflow</CardTitle>
+          <CardTitle>機能開発の作業手順</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="mb-4">Common workflow for developing new features:</p>
+          <p className="mb-4">新機能開発の一般的な手順：</p>
           <CodeBlock
-            code={`# Create and switch to a new feature branch
+            code={`# 新しい機能用のブランチを作成して切り替え
 git checkout -b feature/new-feature
 
-# Make changes and commit
+# 変更を加えてコミット
 git add .
-git commit -m "Add new feature"
+git commit -m "新機能を追加"
 
-# Push the feature branch
+# 機能ブランチをプッシュ
 git push origin feature/new-feature
 
-# Switch back to main and merge
+# mainブランチに戻ってマージ
 git checkout main
 git merge feature/new-feature`}
             language="bash"
@@ -53,7 +53,7 @@ git merge feature/new-feature`}
 
       <Card>
         <CardHeader>
-          <CardTitle>Advanced Git Operations</CardTitle>
+          <CardTitle>高度なGit操作</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
