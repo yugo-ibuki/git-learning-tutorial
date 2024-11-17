@@ -5,8 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite --port 3000",
-    "build": "tsc && vite build",
-    "start": "NODE_ENV=production node dist/main.js"
+    "build": "tsc && vite build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

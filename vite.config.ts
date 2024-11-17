@@ -8,12 +8,15 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client", "src"),
-      db: path.resolve(__dirname, "db"),
     },
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+  },
+  optimizeDeps: {
+    include: ['prismjs', 'prismjs/components/prism-bash']
   },
   root: path.resolve(__dirname, "client"),
   build: {
-    outDir: path.resolve(__dirname, "dist/public"),
+    outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true,
   },
 });
