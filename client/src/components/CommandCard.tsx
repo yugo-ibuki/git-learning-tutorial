@@ -17,8 +17,7 @@ export function CommandCard({ command, description, example, useCase, tips }: Co
   const copyCommand = async () => {
     await navigator.clipboard.writeText(command);
     toast({
-      title: "Copied to clipboard",
-      description: "The command has been copied to your clipboard.",
+      title: "コピーしました",
     });
   };
 

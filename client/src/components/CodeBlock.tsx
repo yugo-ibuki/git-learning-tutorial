@@ -20,8 +20,7 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
     await navigator.clipboard.writeText(code);
     setCopied(true);
     toast({
-      title: "Copied to clipboard",
-      description: "The code has been copied to your clipboard.",
+      title: "コピーしました",
     });
     setTimeout(() => setCopied(false), 2000);
   };
