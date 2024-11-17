@@ -11,28 +11,30 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <Link href="/">
-              <a className="text-xl font-bold">Git Tutorial</a>
+              <Button variant="link" className="text-xl font-bold p-0">
+                Gitチュートリアル
+              </Button>
             </Link>
             <div className="hidden md:flex space-x-4">
               <Link href="/git-basics">
                 <Button
                   variant={location === "/git-basics" ? "default" : "ghost"}
                 >
-                  Git Basics
+                  Git基礎
                 </Button>
               </Link>
               <Link href="/git-workflow">
                 <Button
                   variant={location === "/git-workflow" ? "default" : "ghost"}
                 >
-                  Git Workflow
+                  Gitワークフロー
                 </Button>
               </Link>
               <Link href="/github-guide">
                 <Button
                   variant={location === "/github-guide" ? "default" : "ghost"}
                 >
-                  GitHub Guide
+                  GitHub活用ガイド
                 </Button>
               </Link>
             </div>
