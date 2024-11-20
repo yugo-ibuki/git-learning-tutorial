@@ -40,45 +40,53 @@ export default function GithubGuide() {
         </TabsContent>
 
         <TabsContent value="pr">
-          <Card>
-            <CardHeader>
-              <CardTitle>プルリクエストの作成と管理</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="mb-6">
-                プルリクエストを使用して、コードの変更を提案し、レビューを受けることができます。
-              </p>
-            </CardContent>
-          </Card>
-          <GithubGuideStep
-            steps={[
-              {
-                stepNumber: 1,
-                stepTitle: "リポジトリの選択",
-                src: "../assets/github/github1.png",
-                alt: "プロフィールを指し示す",
-                description: "右上のプロフィール画像をクリックしリポジトリを選択し該当のリポジトリを選択"
-              },
-              {
-                stepNumber: 2,
-                stepTitle: "プルリクエストの作成開始",
-                src: "../assets/github/github2.png",
-                alt: "プルリクエスト作成",
-                description: "プッシュしたブランチでPull Requestを作成する項目が出てくるのでCreateする"
-              },
-              {
-                stepNumber: 3,
-                stepTitle: "プルリクエストの内容記入",
-                src: "../assets/github/github3.png",
-                alt: "内容を記入し作成",
-                description: "内容を記入しCreate pull requestをクリックする"
-              }
-            ]}
-          />
+          <div className="space-y-12">
+            <Card>
+              <CardHeader>
+                <CardTitle>プルリクエストの作成と管理</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-6">
+                  プルリクエストを使用して、コードの変更を提案し、レビューを受けることができます。
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* 区切り線の上下に余白を追加 */}
+            <div className="py-4">  {/* 上下のパディングを追加 */}
+              <div className="border-t border-gray-200 dark:border-gray-800" />
+            </div>
+
+            <GithubGuideStep
+              steps={[
+                {
+                  stepNumber: 1,
+                  stepTitle: "リポジトリの選択",
+                  src: "../assets/github/github1.png",
+                  alt: "プロフィールを指し示す",
+                  description: "右上のプロフィール画像をクリックしリポジトリを選択し該当のリポジトリを選択"
+                },
+                {
+                  stepNumber: 2,
+                  stepTitle: "プルリクエストの作成開始",
+                  src: "../assets/github/github2.png",
+                  alt: "プルリクエスト作成",
+                  description: "プッシュしたブランチでPull Requestを作成する項目が出てくるのでCreateする"
+                },
+                {
+                  stepNumber: 3,
+                  stepTitle: "プルリクエストの内容記入",
+                  src: "../assets/github/github3.png",
+                  alt: "内容を記入し作成",
+                  description: "内容を記入しCreate pull requestをクリックする"
+                }
+              ]}
+            />
+          </div>
         </TabsContent>
 
         <TabsContent value="issues">
-          <Card>
+        <Card>
             <CardHeader>
               <CardTitle>イシューの管理</CardTitle>
             </CardHeader>
