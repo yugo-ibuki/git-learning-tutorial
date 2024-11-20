@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GithubAssets } from '@/components/GithubAssets.tsx';
+import { GithubGuideStep } from '@/components/GithubGuideStep.tsx';
 
 export default function GithubGuide() {
   return (
@@ -44,37 +45,36 @@ export default function GithubGuide() {
               <CardTitle>プルリクエストの作成と管理</CardTitle>
             </CardHeader>
             <CardContent>
-              <ol className="space-y-4 list-decimal list-inside">
-                <li>変更用の新しいブランチを作成</li>
-                <li>変更をGitHubにプッシュ</li>
-                <li>「Compare & pull request」をクリック</li>
-                <li>説明を追加してレビュアーを指定</li>
-                <li>プルリクエストを送信</li>
-              </ol>
+              <p className="mb-6">
+                プルリクエストを使用して、コードの変更を提案し、レビューを受けることができます。
+              </p>
             </CardContent>
           </Card>
-          <GithubAssets
-            title="プルリクエストの作成手順"
-            assets={[
+          <GithubGuideStep
+            steps={[
               {
+                stepNumber: 1,
+                stepTitle: "リポジトリの選択",
                 src: "../assets/github/github1.png",
-                alt: "プルリクエスト作成画面",
-                description: "プルリクエストの作成方法"
+                alt: "プロフィールを指し示す",
+                description: "右上のプロフィール画像をクリックしリポジトリを選択し該当のリポジトリを選択"
               },
               {
+                stepNumber: 2,
+                stepTitle: "プルリクエストの作成開始",
                 src: "../assets/github/github2.png",
-                alt: "プルリクエストレビュー画面",
-                description: "プルリクエストのレビュー方法"
+                alt: "プルリクエスト作成",
+                description: "プッシュしたブランチでPull Requestを作成する項目が出てくるのでCreateする"
               },
               {
+                stepNumber: 3,
+                stepTitle: "プルリクエストの内容記入",
                 src: "../assets/github/github3.png",
-                alt: "プルリクエストマージ画面",
-                description: "プルリクエストのマージ方法"
+                alt: "内容を記入し作成",
+                description: "内容を記入しCreate pull requestをクリックする"
               }
             ]}
-            columns={3}
           />
-
         </TabsContent>
 
         <TabsContent value="issues">
