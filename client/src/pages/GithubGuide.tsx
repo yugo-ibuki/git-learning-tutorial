@@ -52,9 +52,8 @@ export default function GithubGuide() {
               </CardContent>
             </Card>
 
-            {/* 区切り線の上下に余白を追加 */}
-            <div className="py-4">  {/* 上下のパディングを追加 */}
-              <div className="border-t border-gray-200 dark:border-gray-800" />
+            <div className="py-4">
+              <div className="border-t border-gray-300 dark:border-gray-600" />
             </div>
 
             <GithubGuideStep
