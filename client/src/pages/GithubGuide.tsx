@@ -1,5 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { GithubAssets } from '@/components/GithubAssets.tsx';
+import { GithubGuideStep } from '@/components/GithubGuideStep.tsx';
 
 export default function GithubGuide() {
   return (
@@ -38,24 +40,52 @@ export default function GithubGuide() {
         </TabsContent>
 
         <TabsContent value="pr">
-          <Card>
-            <CardHeader>
-              <CardTitle>プルリクエストの作成と管理</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ol className="space-y-4 list-decimal list-inside">
-                <li>変更用の新しいブランチを作成</li>
-                <li>変更をGitHubにプッシュ</li>
-                <li>「Compare & pull request」をクリック</li>
-                <li>説明を追加してレビュアーを指定</li>
-                <li>プルリクエストを送信</li>
-              </ol>
-            </CardContent>
-          </Card>
+          <div className="space-y-12">
+            <Card>
+              <CardHeader>
+                <CardTitle>プルリクエストの作成と管理</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-6">
+                  プルリクエストを使用して、コードの変更を提案し、レビューを受けることができます。
+                </p>
+              </CardContent>
+            </Card>
+
+            <div className="py-4">
+              <div className="border-t border-gray-300 dark:border-gray-600" />
+            </div>
+
+            <GithubGuideStep
+              steps={[
+                {
+                  stepNumber: 1,
+                  stepTitle: "リポジトリの選択",
+                  src: "../assets/github/github1.png",
+                  alt: "プロフィールを指し示す",
+                  description: "右上のプロフィール画像をクリックしリポジトリを選択し該当のリポジトリを選択"
+                },
+                {
+                  stepNumber: 2,
+                  stepTitle: "プルリクエストの作成開始",
+                  src: "../assets/github/github2.png",
+                  alt: "プルリクエスト作成",
+                  description: "プッシュしたブランチでPull Requestを作成する項目が出てくるのでCreateする"
+                },
+                {
+                  stepNumber: 3,
+                  stepTitle: "プルリクエストの内容記入",
+                  src: "../assets/github/github3.png",
+                  alt: "内容を記入し作成",
+                  description: "内容を記入しCreate pull requestをクリックする"
+                }
+              ]}
+            />
+          </div>
         </TabsContent>
 
         <TabsContent value="issues">
-          <Card>
+        <Card>
             <CardHeader>
               <CardTitle>イシューの管理</CardTitle>
             </CardHeader>
