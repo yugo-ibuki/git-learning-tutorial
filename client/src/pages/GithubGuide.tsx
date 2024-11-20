@@ -61,24 +61,26 @@ export default function GithubGuide() {
                 {
                   stepNumber: 1,
                   stepTitle: "リポジトリの選択",
-                  src: "../assets/github/github1.png",
+                  src: "/github/github1.png",
                   alt: "プロフィールを指し示す",
-                  description: "右上のプロフィール画像をクリックしリポジトリを選択し該当のリポジトリを選択"
+                  description:
+                    "右上のプロフィール画像をクリックしリポジトリを選択し該当のリポジトリを選択",
                 },
                 {
                   stepNumber: 2,
                   stepTitle: "プルリクエストの作成開始",
-                  src: "../assets/github/github2.png",
+                  src: "/github/github2.png",
                   alt: "プルリクエスト作成",
-                  description: "プッシュしたブランチでPull Requestを作成する項目が出てくるのでCreateする"
+                  description:
+                    "プッシュしたブランチでPull Requestを作成する項目が出てくるのでCreateする",
                 },
                 {
                   stepNumber: 3,
                   stepTitle: "プルリクエストの内容記入",
-                  src: "../assets/github/github3.png",
+                  src: "/github/github3.png",
                   alt: "内容を記入し作成",
-                  description: "内容を記入しCreate pull requestをクリックする"
-                }
+                  description: "内容を記入しCreate pull requestをクリックする",
+                },
               ]}
             />
           </div>
