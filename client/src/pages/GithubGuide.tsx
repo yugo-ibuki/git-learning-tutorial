@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { GithubAssets } from '@/components/GithubAssets.tsx';
 
 export default function GithubGuide() {
   return (
@@ -52,6 +53,28 @@ export default function GithubGuide() {
               </ol>
             </CardContent>
           </Card>
+          <GithubAssets
+            title="プルリクエストの作成手順"
+            assets={[
+              {
+                src: "../assets/github/github1.png",
+                alt: "プルリクエスト作成画面",
+                description: "プルリクエストの作成方法"
+              },
+              {
+                src: "../assets/github/github2.png",
+                alt: "プルリクエストレビュー画面",
+                description: "プルリクエストのレビュー方法"
+              },
+              {
+                src: "../assets/github/github3.png",
+                alt: "プルリクエストマージ画面",
+                description: "プルリクエストのマージ方法"
+              }
+            ]}
+            columns={3}
+          />
+
         </TabsContent>
 
         <TabsContent value="issues">
