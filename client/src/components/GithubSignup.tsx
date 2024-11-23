@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { GithubAssets } from "@/components/GithubAssets";
+import { CheckCircle2 } from 'lucide-react';
 
 export default function GithubSignup() {
   return (
@@ -12,31 +12,56 @@ export default function GithubSignup() {
         </CardHeader>
         <CardContent>
           <div className="space-y-6">
-            <GithubAssets
-              title="GitHubアカウント作成ステップ"
-              assets={[
-                {
-                  src: "/github/signup1.png",
-                  alt: "GitHubトップページ",
-                  description: "GitHubトップページの「Sign up」ボタンをクリック"
-                },
-                {
-                  src: "/github/signup2.png",
-                  alt: "メールアドレス入力",
-                  description: "メールアドレスを入力して「Continue」をクリック"
-                },
-                {
-                  src: "/github/signup3.png",
-                  alt: "パスワード設定",
-                  description: "強力なパスワードを設定（8文字以上、数字と記号を含む）"
-                },
-                {
-                  src: "/github/signup4.png",
-                  alt: "ユーザー名設定",
-                  description: "一意のユーザー名を設定（後で変更可能）"
-                }
-              ]}
-            />
+            <div className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <CheckCircle2 className="h-6 w-6 text-green-500"/>
+              </div>
+              <div>
+                <h3 className="font-semibold">ステップ 1: GitHub.comにアクセス</h3>
+                <p className="text-sm text-gray-600">
+                  GitHubのトップページ（github.com）にアクセスし、右上の「Sign up」ボタンをクリックします
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <CheckCircle2 className="h-6 w-6 text-green-500"/>
+              </div>
+              <div>
+                <h3 className="font-semibold">ステップ 2: メールアドレスの入力</h3>
+                <p className="text-sm text-gray-600">
+                  有効なメールアドレスを入力します。このメールアドレスは確認メールの送信や通知に使用されます
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <CheckCircle2 className="h-6 w-6 text-green-500"/>
+              </div>
+              <div>
+                <h3 className="font-semibold">ステップ 3: パスワードの設定</h3>
+                <p className="text-sm text-gray-600">
+                  安全なパスワードを設定してください：
+                </p>
+                <ul className="list-disc list-inside text-sm text-gray-600 ml-4">
+                  <li>8文字以上の長さ</li>
+                  <li>1つ以上の数字を含む</li>
+                  <li>1つ以上の小文字を含む</li>
+                  <li>1つ以上の記号を含む</li>
+                </ul>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <CheckCircle2 className="h-6 w-6 text-green-500"/>
+              </div>
+              <div>
+                <h3 className="font-semibold">ステップ 4: ユーザー名の設定</h3>
+                <p className="text-sm text-gray-600">
+                  一意のユーザー名を設定します。これはあなたのGitHubプロフィールのURLとなります
+                </p>
+              </div>
+            </div>
           </div>
         </CardContent>
       </Card>
