@@ -71,16 +71,35 @@ export default function GitBasics() {
         <CardContent>
           <p className="mb-4">SSHキーの生成と設定：</p>
           <CodeBlock
-            code={`# SSHキーを生成
-ssh-keygen -t ed25519 -C "${username}"
+            code={`# SSHキーを生成 (4096ビットの強力な暗号化)
+ssh-keygen -t rsa -b 4096 -C "${username}" -f id_rsa_github
+
+# .sshディレクトリがない場合は作成
+mkdir -p ~/.ssh
+
+# 生成した鍵を.sshディレクトリに移動
+mv id_rsa_github* ~/.ssh/
+
+# 適切なパーミッションを設定
+chmod 600 ~/.ssh/id_rsa_github
+chmod 644 ~/.ssh/id_rsa_github.pub
 
 # 公開キーを表示（これをGitHubに登録）
-cat ~/.ssh/id_ed25519.pub
+cat ~/.ssh/id_rsa_github.pub
 
 # GitHubとの接続をテスト
 ssh -T git@github.com`}
             language="bash"
           />
+          <div className="mt-4 text-sm text-muted-foreground">
+            <p>💡 生成された公開キーを<a
+              href="https://github.com/settings/keys"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-600"
+            >GitHub Settings {">"} SSH and GPG keys</a>に登録してください。</p>
+            <p>💡 パーミッション設定は秘密鍵のセキュリティを確保するために重要です。</p>
+          </div>
         </CardContent>
       </Card>
 
@@ -116,9 +135,7 @@ git init
 git add .
 # 最初のコミットを作成
 git commit -m "最初のコミット"
-# リモートリポジトリを追加 (HTTPS)
-git remote add origin https://github.com/${username}/repo.git
-# または SSH を使用する場合
+# リモートリポジトリを追加（SSH）
 git remote add origin git@github.com:${username}/repo.git
 # 変更をプッシュ
 git push -u origin main`}
