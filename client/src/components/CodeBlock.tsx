@@ -10,9 +10,10 @@ import 'prismjs/components/prism-git';
 interface CodeBlockProps {
   code: string;
   language: string;
+  className?: string;
 }
 
-export function CodeBlock({ code, language }: CodeBlockProps) {
+export function CodeBlock({ code, language, className }: CodeBlockProps) {
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
 
@@ -25,14 +26,18 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const highlighted = Prism.highlight(code, Prism.languages[language], language);
+  const highlighted = Prism.highlight(
+    code,
+    Prism.languages[language],
+    language,
+  );
 
   return (
-    <div className="relative">
+    <div className={`relative ${className}`}>
       <pre className="rounded-lg bg-zinc-950 p-4 overflow-x-auto">
         <code
           className={`language-${language}`}
-          dangerouslySetInnerHTML={{ __html: highlighted }}
+          dangerouslySetInnerHTML={{__html: highlighted}}
         />
       </pre>
       <Button
@@ -41,7 +46,7 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
         className="absolute top-2 right-2"
         onClick={copyCode}
       >
-        <Copy className="h-4 w-4" />
+        <Copy className="h-4 w-4"/>
       </Button>
     </div>
   );

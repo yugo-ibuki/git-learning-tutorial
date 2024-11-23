@@ -4,7 +4,7 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "vite --port 3000",
+    "dev": "vite --port 3005",
     "build": "tsc && vite build"
   },
   "dependencies": {
