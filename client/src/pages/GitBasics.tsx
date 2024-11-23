@@ -9,6 +9,39 @@ import { Link } from 'wouter';
 
 export default function GitBasics() {
   const [username, setUsername] = useState("");
+  const [isSSHExpanded, setIsSSHExpanded] = useState(false);
+
+  const sshCommands = [
+    {
+      command: `ssh-keygen -t rsa -b 4096 -C "${username}" -f id_rsa_github`,
+      description: "SSHキーを生成（4096ビットの強力な暗号化）",
+    },
+    {
+      command: "mkdir -p ~/.ssh",
+      description: ".sshディレクトリがない場合は作成",
+    },
+    {
+      command: "mv id_rsa_github* ~/.ssh/",
+      description: "生成した鍵を.sshディレクトリに移動",
+    },
+    {
+      command: "chmod 600 ~/.ssh/id_rsa_github",
+      description: "秘密鍵のパーミッションを設定（所有者のみ読み書き可能）",
+    },
+    {
+      command: "chmod 644 ~/.ssh/id_rsa_github.pub",
+      description: "公開鍵のパーミッションを設定（全ユーザーが読み取り可能）",
+    },
+    {
+      command: "cat ~/.ssh/id_rsa_github.pub",
+      description: "公開キーを表示（これをGitHubに登録）",
+    },
+    {
+      command: "ssh -T git@github.com",
+      description: "GitHubとの接続をテスト",
+    },
+  ];
+
   useEffect(() => {
     // ローカルストレージから保存されたデータを取得
     const storedData = localStorage.getItem("gitUsername");
@@ -75,40 +108,40 @@ export default function GitBasics() {
 
       <Card>
         <CardHeader>
-          <CardTitle>SSH設定</CardTitle>
+          <CardTitle className="flex justify-between items-center">
+            <span>SSH設定</span>
+            <Button
+              variant="ghost"
+              onClick={() => setIsSSHExpanded(!isSSHExpanded)}
+              className="text-sm"
+            >
+              {isSSHExpanded ? "折りたたむ" : "展開する"}
+            </Button>
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="mb-4">SSHキーの生成と設定：</p>
-          <CodeBlock
-            code={`# SSHキーを生成 (4096ビットの強力な暗号化)
-ssh-keygen -t rsa -b 4096 -C "${username}" -f id_rsa_github
-
-# .sshディレクトリがない場合は作成
-mkdir -p ~/.ssh
-
-# 生成した鍵を.sshディレクトリに移動
-mv id_rsa_github* ~/.ssh/
-
-# 適切なパーミッションを設定
-chmod 600 ~/.ssh/id_rsa_github
-chmod 644 ~/.ssh/id_rsa_github.pub
-
-# 公開キーを表示（これをGitHubに登録）
-cat ~/.ssh/id_rsa_github.pub
-
-# GitHubとの接続をテスト
-ssh -T git@github.com`}
-            language="bash"
-          />
-          <div className="mt-4 text-sm text-muted-foreground">
-            <p>💡 生成された公開キーを<a
-              href="https://github.com/settings/keys"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-600"
-            >GitHub Settings {">"} SSH and GPG keys</a>に登録してください。</p>
-            <p>💡 パーミッション設定は秘密鍵のセキュリティを確保するために重要です。</p>
-          </div>
+          {isSSHExpanded && (
+            <>
+              <div className="space-y-4">
+                {sshCommands.map((cmd) => (
+                  <CommandCard
+                    key={cmd.command}
+                    command={cmd.command}
+                    description={cmd.description}
+                  />
+                ))}
+              </div>
+              <div className="mt-6 text-sm text-muted-foreground">
+                <p>💡 生成された公開キーを<a
+                  href="https://github.com/settings/keys"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-600"
+                >GitHub Settings {">"} SSH and GPG keys</a>に登録してください。</p>
+              </div>
+            </>
+          )}
         </CardContent>
       </Card>
 
@@ -140,14 +173,18 @@ ssh -T git@github.com`}
             <CodeBlock
               code={`# 新しいリポジトリを作成
 git init
+
 # 変更をステージングに追加
 git add .
+
 # 最初のコミットを作成
 git commit -m "最初のコミット"
+
 # リモートリポジトリを追加（SSH）
 git remote add origin git@github.com:${username}/repo.git
+
 # 変更をプッシュ
-git push -u origin main`}
+git push origin main`}
               language="bash"
             />
 
