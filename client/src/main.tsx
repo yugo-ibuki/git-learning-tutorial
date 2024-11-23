@@ -11,6 +11,7 @@ import GithubGuide from "./pages/GithubGuide";
 import Navigation from "./components/Navigation";
 import { ThemeProvider } from "./components/ui/theme-provider";
 import { Toaster } from "./components/ui/toaster";
+import GithubSignup from "./components/GithubSignup";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -23,6 +24,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/git-basics" component={GitBasics} />
             <Route path="/git-workflow" component={GitWorkflow} />
             <Route path="/github-guide" component={GithubGuide} />
+            <Route path="/github-signup" component={GithubSignup} />
             <Route>404 - Page Not Found</Route>
           </Switch>
         </main>

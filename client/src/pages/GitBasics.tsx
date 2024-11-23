@@ -5,6 +5,7 @@ import { gitBasicsCommands } from "../lib/git-commands";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Link } from 'wouter';
 
 export default function GitBasics() {
   const [username, setUsername] = useState("");
@@ -34,7 +35,15 @@ export default function GitBasics() {
 
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-bold">Git基礎</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-3xl font-bold">Git基礎</h1>
+        <Link
+          href="/github-signup"
+          className="text-sm text-blue-500 hover:text-blue-600"
+        >
+          GitHubアカウントの作成方法 →
+        </Link>
+      </div>
 
       <Card>
         <CardHeader>
@@ -43,7 +52,7 @@ export default function GitBasics() {
         <CardContent>
           <div className="flex gap-4 items-end">
             <div className="flex-1">
-              <label className="text-sm text-muted-foreground mb-2 block">
+            <label className="text-sm text-muted-foreground mb-2 block">
                 Gitユーザー名
               </label>
               <Input
