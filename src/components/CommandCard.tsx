@@ -1,25 +1,33 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Copy } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+"use client"
+
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { useToast } from "@/hooks/use-toast"
+import { Copy } from "lucide-react"
 
 interface CommandCardProps {
-  command: string;
-  description: string;
-  example?: string;
-  useCase?: string;
-  tips?: string;
+  command: string
+  description: string
+  example?: string
+  useCase?: string
+  tips?: string
 }
 
-export function CommandCard({ command, description, example, useCase, tips }: CommandCardProps) {
-  const { toast } = useToast();
+export function CommandCard({
+  command,
+  description,
+  example,
+  useCase,
+  tips,
+}: CommandCardProps) {
+  const { toast } = useToast()
 
   const copyCommand = async () => {
-    await navigator.clipboard.writeText(command);
+    await navigator.clipboard.writeText(command)
     toast({
       title: "コピーしました",
-    });
-  };
+    })
+  }
 
   return (
     <Card>
@@ -32,7 +40,9 @@ export function CommandCard({ command, description, example, useCase, tips }: Co
                 <Copy className="h-4 w-4" />
               </Button>
             </div>
-            <p className="mt-2 text-sm text-muted-foreground whitespace-pre-line">{description}</p>
+            <p className="mt-2 text-sm text-muted-foreground whitespace-pre-line">
+              {description}
+            </p>
             {example && (
               <div className="mt-4">
                 <h4 className="text-sm font-semibold mb-1">使用例:</h4>
@@ -57,5 +67,5 @@ export function CommandCard({ command, description, example, useCase, tips }: Co
         </div>
       </CardContent>
     </Card>
-  );
+  )
 }

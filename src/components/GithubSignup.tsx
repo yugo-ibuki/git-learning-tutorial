@@ -1,5 +1,7 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle2 } from 'lucide-react';
+"use client"
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { CheckCircle2 } from "lucide-react"
 
 export default function GithubSignup() {
   return (
@@ -14,21 +16,26 @@ export default function GithubSignup() {
           <div className="space-y-6">
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
-                <CheckCircle2 className="h-6 w-6 text-green-500"/>
+                <CheckCircle2 className="h-6 w-6 text-green-500" />
               </div>
               <div>
-                <h3 className="font-semibold">ステップ 1: GitHub.comにアクセス</h3>
+                <h3 className="font-semibold">
+                  ステップ 1: GitHub.comにアクセス
+                </h3>
                 <p className="text-sm text-gray-600">
-                  GitHubのトップページ（github.com）にアクセスし、右上の「Sign up」ボタンをクリックします
+                  GitHubのトップページ（github.com）にアクセスし、右上の「Sign
+                  up」ボタンをクリックします
                 </p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
-                <CheckCircle2 className="h-6 w-6 text-green-500"/>
+                <CheckCircle2 className="h-6 w-6 text-green-500" />
               </div>
               <div>
-                <h3 className="font-semibold">ステップ 2: メールアドレスの入力</h3>
+                <h3 className="font-semibold">
+                  ステップ 2: メールアドレスの入力
+                </h3>
                 <p className="text-sm text-gray-600">
                   有効なメールアドレスを入力します。このメールアドレスは確認メールの送信や通知に使用されます
                 </p>
@@ -36,7 +43,7 @@ export default function GithubSignup() {
             </div>
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
-                <CheckCircle2 className="h-6 w-6 text-green-500"/>
+                <CheckCircle2 className="h-6 w-6 text-green-500" />
               </div>
               <div>
                 <h3 className="font-semibold">ステップ 3: パスワードの設定</h3>
@@ -53,7 +60,7 @@ export default function GithubSignup() {
             </div>
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
-                <CheckCircle2 className="h-6 w-6 text-green-500"/>
+                <CheckCircle2 className="h-6 w-6 text-green-500" />
               </div>
               <div>
                 <h3 className="font-semibold">ステップ 4: ユーザー名の設定</h3>
@@ -72,7 +79,9 @@ export default function GithubSignup() {
         </CardHeader>
         <CardContent>
           <ul className="list-disc list-inside space-y-2">
-            <li>ユーザー名は後から変更可能ですが、リポジトリのURLにも使用されるため、慎重に選びましょう</li>
+            <li>
+              ユーザー名は後から変更可能ですが、リポジトリのURLにも使用されるため、慎重に選びましょう
+            </li>
             <li>プロフィール画像やバイオは後から設定できます</li>
             <li>二要素認証の設定を推奨します（セキュリティ向上）</li>
             <li>プロフィールページはポートフォリオとしても活用できます</li>
@@ -80,5 +89,5 @@ export default function GithubSignup() {
         </CardContent>
       </Card>
     </div>
-  );
+  )
 }

@@ -1,29 +1,29 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { useState } from "react";
+"use client"
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { useState } from "react"
 
 interface StepItem {
-  src: string;
-  alt: string;
-  description: string;
-  stepNumber: number;
-  stepTitle: string;
+  src: string
+  alt: string
+  description: string
+  stepNumber: number
+  stepTitle: string
 }
 
 interface GithubGuideStepProps {
-  steps: StepItem[];
+  steps: StepItem[]
 }
 
 export function GithubGuideStep({ steps }: GithubGuideStepProps) {
-  const [selectedImage, setSelectedImage] = useState<StepItem | null>(null);
+  const [selectedImage, setSelectedImage] = useState<StepItem | null>(null)
   return (
     <div className="space-y-6">
       {steps.map((step, index) => (
         <div key={step.stepNumber}>
           {/* 区切り線 */}
-          {index > 0 && (
-            <div className="border-t border-border/40 my-6" />
-          )}
+          {index > 0 && <div className="border-t border-border/40 my-6" />}
 
           <div className="flex gap-6 items-start">
             {/* ステップ番号とライン */}
@@ -83,5 +83,5 @@ export function GithubGuideStep({ steps }: GithubGuideStepProps) {
         </div>
       ))}
     </div>
-  );
+  )
 }
