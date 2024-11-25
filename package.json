@@ -46,7 +46,7 @@
     "express": "^4.21.1",
     "express-session": "^1.18.1",
     "input-otp": "^1.2.4",
-    "lucide-react": "^0.453.0",
+    "lucide-react": "^0.460.0",
     "memorystore": "^1.6.7",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
