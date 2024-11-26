@@ -29,13 +29,24 @@ export function ThemeProvider({
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  )
+  // マウント状態を追跡
+  const [mounted, setMounted] = useState(false)
+  const [theme, setTheme] = useState<Theme>(defaultTheme)
 
+  // マウント後にlocalStorageを確認
   useEffect(() => {
-    const root = window.document.documentElement
+    setMounted(true)
+    const savedTheme = localStorage.getItem(storageKey) as Theme
+    if (savedTheme) {
+      setTheme(savedTheme)
+    }
+  }, [storageKey])
 
+  // テーマの適用
+  useEffect(() => {
+    if (!mounted) return
+
+    const root = window.document.documentElement
     root.classList.remove("light", "dark")
 
     if (theme === "system") {
@@ -49,7 +60,19 @@ export function ThemeProvider({
     }
 
     root.classList.add(theme)
-  }, [theme])
+  }, [theme, mounted])
+
+  // 初期レンダリング時はサーバーサイドの状態を使用
+  if (!mounted) {
+    return (
+      <ThemeProviderContext.Provider
+        {...props}
+        value={{ ...initialState, theme: defaultTheme }}
+      >
+        {children}
+      </ThemeProviderContext.Provider>
+    )
+  }
 
   const value = {
     theme,

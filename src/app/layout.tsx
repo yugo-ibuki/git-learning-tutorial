@@ -11,14 +11,14 @@ export default function RootLayout({
   children: ReactNode
 }) {
   return (
-    <html lang="ja">
-      <ThemeProvider defaultTheme="system" storageKey="git-tutorial-theme">
-        <body>
+    <html lang="ja" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <ThemeProvider defaultTheme="system" storageKey="git-tutorial-theme">
           <Navigation />
           <main className="container mx-auto py-8 px-4">{children}</main>
           <Toaster />
-        </body>
-      </ThemeProvider>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
