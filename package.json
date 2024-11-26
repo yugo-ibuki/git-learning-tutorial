@@ -54,7 +54,8 @@
     "recharts": "^2.13.0",
     "shadcn-ui": "^0.9.3",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vaul": "^1.1.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
